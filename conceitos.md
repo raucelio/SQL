@@ -87,7 +87,7 @@ A chave composta é utilizada para suprir a necessidade do uso de chave primári
 
 Chave Estrangeira: A chave estrangeira (FK - Foreing Key) é uma coluna que armazena a chave primária de outra tabela. A Chave estrangeira e a chave primaria forma o relacionamento entre tabelas.
 
-| Cliente |
+
 |Codigo |Nome |
 | :----: | :----  |
 | 1 | Carlos Drummond de Andrade    |
@@ -98,4 +98,6 @@ Chave Estrangeira: A chave estrangeira (FK - Foreing Key) é uma coluna que arma
 | :----: | :----  | :----- |
 | 239 | 1  | dvd player    |
 | 240 | 1  | home theater  |
-| 241 | 2  | som            |
+| 241 | 2  | som           |
+
+Neste caso, a coluna **Cliente** da tabela **VENDAS** está encarregada somente de armazenar o número do código do cliente responsável pela compra. Nessa tabela **VENDAS**, esse campo é chave estrangeira, pois tem origem em outra tabela, além de ser possível cadastrá-lo em mais de um registro, tendo em vista que um cliente pode realizar mais de uma compra na loja. A coluna **Codigo** na tabela **CLIENTEs** é a chave primária, pois o cliente é dadstrado uma única vez. Assim, o campo **Cliente** é uma chave estrangeira em **VENDAS** e o campo **Codigo** é a chave primária em **CLIENTE**
