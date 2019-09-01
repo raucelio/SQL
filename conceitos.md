@@ -1,6 +1,7 @@
+# Conceitos Básicos
 
 
-### Dado e Informação
+## Dado e Informação
 
 Tendo como base um sistema de computador, dados podem ser definidos como um conjunto de bits (ou de caracteres em uma macro visão) para armazenamento de caracteres e textos no formato alfanumérico ou, até mesmo, de arquivos e imagens.
 
@@ -13,7 +14,7 @@ Exemplo:
 A informação é um dado agregado a um conhecimento. A informação pode ser interpretada e o conhecimento apenas pode ser visualizado.
 
 
-### Banco de Dados
+## Banco de Dados
 
 **Banco de Dados**
 
@@ -26,7 +27,7 @@ Banco de dados é uma coleção de dados referentes a um assunto ou propósito e
 
 Todos os bancos de de dados relacionais mantêm algumas semelhaças entre si no que diz respeito às suas arquiteturas. Suas formas de armazenamento, componentes para criação de relacionamentos, estruturas para indexação de seus dados e organização interna, entre outras caractérsticas, são alguns dos benefícios gerados pela arquitetura de um banco relacional.
 
-### Arquitetura de um Banco de Dados Relacional
+## Arquitetura de um Banco de Dados Relacional
 
 **Tabela**
 
@@ -88,11 +89,15 @@ A chave composta é utilizada para suprir a necessidade do uso de chave primári
 Chave Estrangeira: A chave estrangeira (FK - Foreing Key) é uma coluna que armazena a chave primária de outra tabela. A Chave estrangeira e a chave primaria forma o relacionamento entre tabelas.
 
 
+### CLIENTES 
+
 |Codigo |Nome |
 | :----: | :----  |
 | 1 | Carlos Drummond de Andrade    |
-| 2 | Ma|chado de Assis  |
+| 2 | Machado de Assis  |
 | 3 | Erico Verissimo  |
+
+### VENDAS
 
 |Nota Fiscal | Cliente | Produto |
 | :----: | :----  | :----- |
