@@ -45,6 +45,8 @@ Os banco de dados realcionais, os dados são organizados em formato de tabela, o
 As linhas de uma tabela são chamadas de registro. Cada registro é formado por um conjuto de campos, os mesmos que formam a tabela. 
 
 | 1 | Dutra Esquadria | Rua XV de Novembro | 1123-4545 |
+| :----: | :----      | :-----   | :------  |
+
 
 **Campo**
 
@@ -58,9 +60,7 @@ Cada coluna da tabela está representando um campo, o qual armazena as informaç
 Chave é a coluna da tabela resposável por identificar os registros. O não uso de chave pode tornar o banco de dados vulnerável a diversos problemas: redundância de dados e inconsistência em relacionamento entre tabelas.
 
 
->Seja um cadastros de clientes, não se deve relacionar um cliente diretamente apenas por seu nome, pois há a possibilidade de haver dois >clientes com exatamente o mesmo nome completo. Na situação de um sorteio de um prêmio e cliente o nome do cliente sorteado é Mário >Anônio, porém no cadastro há dois clientes distintos com esse nome. Qual deles ficará com o prêmio?
->
->Uma solução seria realizar um sorteio com base no número e no telefone do cliente (solução conhecida como chave composta), além disso >poderia ser usado o CPF do cliente, uma vez que o CPF é exclusivo para cada cliente (solução conhecida como chave primária). 
+>Seja um cadastros de clientes, não se deve relacionar um cliente diretamente apenas por seu nome, pois há a possibilidade de haver dois clientes com exatamente o mesmo nome completo. Na situação de um sorteio de um prêmio e cliente o nome do cliente sorteado é Mário Anônio, porém no cadastro há dois clientes distintos com esse nome. Qual deles ficará com o prêmio? >Uma solução seria realizar um sorteio com base no número e no telefone do cliente (solução conhecida como chave composta), além disso >poderia ser usado o CPF do cliente, uma vez que o CPF é exclusivo para cada cliente (solução conhecida como chave primária). 
 
 
 
