@@ -26,3 +26,10 @@ Banco de dados é uma coleção de dados referentes a um assunto ou propósito e
 
 Todos os bancos de de dados relacionais mantêm algumas semelhaças entre si no que diz respeito às suas arquiteturas. Suas formas de armazenamento, componentes para criação de relacionamentos, estruturas para indexação de seus dados e organização interna, entre outras caractérsticas, são alguns dos benefícios gerados pela arquitetura de um banco relacional.
 
+**Tabela**
+
+Os banco de dados realcionais, os dados são organizados em formato de tabela, onde cada coluna é um campo e cada linha um resgistro.
+
+| Codigo | Fornecedor | Endereco | Telefone |
+| :----: | :----      | :-----   | :------  |
+| 1 | Dutra Esquadria : Rua XV de Novembro | 1123-4545
