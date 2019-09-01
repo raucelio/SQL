@@ -84,7 +84,7 @@ No caso de anomalias de exclusão, suas características é o impedimento do sis
 Seja uma locadora, onde o gerenciamento das locações é realizada na mesma tabela de gerenciamento de filmes, conforme a tabela abaixo:
 
 
-**Tabela Locação**
+**Tabela LOCAÇÃO/FILME**
 
 |NOME|FILME |GENERO|
 |:---- |:--- |:--- |
@@ -97,15 +97,15 @@ Neste caso, a anomalia irar ocorrer quando ouver a necessidade de excluir o clie
 Para resolver este bloqueio de exclusão, assim como nas anomalias de inserção,  o gerenciamento  de clientes e filmes deve ser separado em duas tabelas, como em 
 
 
-**Tabela Locação**
+**Tabela LOCAÇÃO**
 
 |NOME|FILME |
-|:---- |:--- |:--- |
+|:---- |:--- |
 |JOAO CARLOS          | 1 | 
 |JOAO MARIA COSTA     | 2 | 
 |SAMUEL OLIVEIRA      | 3 | 
 
-**Tabela Filme**
+**Tabela FILME**
 
 |CODIGO|FILME |GENERO|
 |:---- |:--- |:--- |
