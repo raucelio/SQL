@@ -1,4 +1,4 @@
-** Dados ** 
+**Dados** 
 
 
 Tendo como base um sistema de computador, dados podem ser definidos como um conjunto de bits (ou de caracteres em uma macro visão) para armazenamento de caracteres e textos no formato alfanumérico ou, até mesmo, de arquivos e imagens.
@@ -7,12 +7,12 @@ Basicamente, um dado é um conjunto alfanumérico ou de imagem, que não está a
 
 Exemplo:
 
-** Informação **
+**Informação**
 
 A informação é um dado agregado a um conhecimento. A informação pode ser interpretada e o conhecimento apenas pode ser visualizado.
 
 
-** Banco de Dados **
+**Banco de Dados**
 
 Banco de dados é uma coleção de dados referentes a um assunto ou propósito específico. 
 
