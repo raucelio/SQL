@@ -1,8 +1,8 @@
 
 
-| 1 | Dutra Esquadria | Rua XV de Novembro | 1123-4545 |**Dados** 
+** 
 
-### Dados e Informações
+### Dado e Informação
 
 Tendo como base um sistema de computador, dados podem ser definidos como um conjunto de bits (ou de caracteres em uma macro visão) para armazenamento de caracteres e textos no formato alfanumérico ou, até mesmo, de arquivos e imagens.
 
@@ -21,11 +21,11 @@ A informação é um dado agregado a um conhecimento. A informação pode ser in
 
 Banco de dados é uma coleção de dados referentes a um assunto ou propósito específico. 
 
-    Banco de dados manuais: os dados armazenados em papel.
+>    Banco de dados manuais: os dados armazenados em papel.
     
-    Banco de dados automaticos: os dados amazenados em computadores.
+>   Banco de dados automaticos: os dados amazenados em computadores.
     
-    Banco de dados relacionais: há relações entre os seus dados (tabelas e entidades).
+>    Banco de dados relacionais: há relações entre os seus dados (tabelas e entidades).
 
 
 
@@ -55,3 +55,8 @@ As linhas de uma tabela são chamadas de registro. Cada registro é formado por 
 Cada coluna da tabela está representando um campo, o qual armazena as informaçãoes sobre um tipo de dado.
 
 | Codigo | Fornecedor | Endereco | Telefone |
+| :----: | :----      | :-----   | :------  |
+
+**Chave**
+
+Chave é a coluna da tabela resposável por identificar os registros. O não uso de chave pode tornar o banco de dados vulnerável a diversos problemas: redundância de dados e inconsistência em relacionamento entre tabelas.
