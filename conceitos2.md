@@ -68,9 +68,48 @@ Para resolver esta situação, a tabela de planos de planos deveria ter um outro
 |2     |MACHADO DE ASSIS| 1 |
 |3     |ERICO VERISSIMO | 2 |
 
+
 **Tabela PLANOS**
 
 |CODIGO|PLANO|VALOR  |
 |:---- |:--- | :---- |
 |1 | SINGLE | 199 |
 |2 | Menor de 25     | 129 |
+
+
+## Anomalias de exclusão
+
+No caso de anomalias de exclusão, suas características é o impedimento do sistema excluir um determinado registro, a fim de evitat a exclusão de mais dados do que o desejado
+ do ge
+Seja uma locadora, onde o gerenciamento das locações é realizada na mesma tabela de gerenciamento de filmes, conforme a tabela abaixo:
+
+
+**Tabela Locação**
+
+|NOME|FILME |GENERO|
+|:---- |:--- |:--- |
+|JOAO CARLOS          | VELOCIDADE MAXIMA | AVENTURA |
+|JOAO MARIA COSTA     | O PREDADOR        | FICCAO   |
+|SAMUEL OLIVEIRA      | DICK TRACE        | POLICIAL |
+
+Neste caso, a anomalia irar ocorrer quando ouver a necessidade de excluir o cliente João Carolos. Como neste exemplo não existe uma tabela própria para o gerencialmento de filmes, ao excluir o registro do cliente João Carlos, estará se perdendo a informação do gênero do filme, pois em nenhum outro cliente realizou a locação do mesmo, causando o impedimento da exclusão.
+
+Para resolver este bloqueio de exclusão, assim como nas anomalias de inserção,  o gerenciamento  de clientes e filmes deve ser separado em duas tabelas, como em 
+
+
+**Tabela Locação**
+
+|NOME|FILME |
+|:---- |:--- |:--- |
+|JOAO CARLOS          | 1 | 
+|JOAO MARIA COSTA     | 2 | 
+|SAMUEL OLIVEIRA      | 3 | 
+
+**Tabela Filme**
+
+|CODIGO|FILME |GENERO|
+|:---- |:--- |:--- |
+|1     | VELOCIDADE MAXIMA | AVENTURA |
+|2     | O PREDADOR        | FICCAO   |
+|3     | DICK TRACE        | POLICIAL |
+
