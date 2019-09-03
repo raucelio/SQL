@@ -53,7 +53,7 @@ A solução para este problema seria incluir um registro para cada locação e s
 
 Neste caso especifico, a tabela **LOCACOES** utiliza uma chave composta para gerar o valor único. Contudo se o cliente locar duas vezes o mesmo filme, haverá dois registros idênticos na tabelas.
 
-## Segunda Forma Normal
+## Segunda Forma Normal (2FN)
 
 A segunda forma norma (2FN) irá tratar mais a fundo a relação entre os atributos de uma tabela. Para entender os requisitos da 2FN, é necessári obrigatóriamente esta na 1FN, e ainda cada atributo não chave da tabela deverá depender exclusivamente de todas as chaves da tabela.
 
@@ -87,10 +87,30 @@ Utilizando o mesmo exemplo da primeira forma normal, nota-se que o campo **SALDO
 |1  | Carlos  | 1223-4231 | -1,00|
 |2  | Maria   | 1333-8765 |  2,50|
 
-## Terceira Forma Normal
+## Terceira Forma Normal (3FN)
 
 A terceira forma normal (3FN) requer que cada atributo de uma tabela dependa exclusivamente de suam chave primária da mesma, alem que requerer que a tabela já esteja na 2FN.
 
 Basicamente, é uma regra semelhante a 2FN, normalmente sendo seguida intuitivamente pelos administradores de banco de dados ao separar os atrbutos de cada tabela de acordo com os assuntos que gerenciam.
 
+Para ilustrar um um exemplo de correção para a 3FN, considere as tabelas de um sistema de vendas de produtos. Considere os campos **COD** como chaves primárias.  
 
+**Tabela PRODUTO**
+
+|COD|PRODUTO|COR|
+|:---   |:---    |:---    |
+|1  | CADERNO  | AZUL  |
+|2  | LAPIS    | VERDE |
+|3  | LAPIS    | AZUL  |
+
+**Tabela VENDA**
+
+|COD|CLIENTE|PRODUTO|COR|
+|:---   |:---    |:---    | :--- |
+|235  | Maria   | 2 | VERDE|
+|236  | Maria   | 1 | AZUL |
+|237  | Maria   | 3 | AZUL |
+
+Neste caso, as tabelas estão na 2FN, mas não na 3FN. Isso se o campo **COR** da tabela **VENDA** for um campo não-chave que depende exclusivamente de outro campo não-chave, no caso **PRODUTO** da tabela **VENDA**. As tabelas organizadas desta forma geram uma redundaância de dados que poderá trazer inconvenientes para o sistema, como, por exemplo, se houver atualizações nas cores dos produtos  da tabela **PRODUTO**, e não atualizar a tabela **VENDA** com as novas informações.
+
+Comom o campo **COR** da tabela **VENDA** pode ser obtido automatcamente por meio de uma consulta  na tabela **PRODUTO**, passando o código do produto, a coluna deve ser excluída da tabela **VENDA**. Desta forma as tabelas estarão na 3FN.
