@@ -15,83 +15,100 @@ Suponha também a existência de tabelas **COMPRAS**, com os seguintes campos:
 * **CODIGO_CLIENTE**   : Número do cliente comprador.
 * **PRODUTO**          : Texto com a discrição do produto comprado.
 * **VALOR**            : Número moeda contendo o valor total da compra.
- 
-## Arquitetura de um Banco de Dados Relacional
-
-**Tabela**
-
-Os banco de dados realcionais, os dados são organizados em formato de tabela, onde cada coluna é um campo e cada linha um resgistro.
-
-| Codigo | Fornecedor | Endereco | Telefone |
-| :----: | :----      | :-----   | :------  |
-| 1 | Dutra Esquadria | Rua XV de Novembro | 1123-4545 |
-| 2 | Alfa Aluminios  | Rua Nunes Machado  | 1263-9598 |
-| 3 | Lider dos Metais | Rua Des. Mota     | 1397-8426 |
-| 4 | Nobre Siderurgica | Avenida dos Estados | 1637-4916 |
-
-**Registro**
-
-As linhas de uma tabela são chamadas de registro. Cada registro é formado por um conjuto de campos, os mesmos que formam a tabela. 
-
-| 1 | Dutra Esquadria | Rua XV de Novembro | 1123-4545 |
-| :----: | :----      | :-----   | :------  |
 
 
-**Campo**
+Neste caso, na tabela **CLIENTE**, o campo **CODIGO** é definido como chave primária, pois o seu valor não se repetirá ao longo desta tabela, ou seja, será unido. Já na tabela **COMPRAS**, o campo **CODIGO_CLIENTE**é definido como como chave estrangeira, pois contonterá valores do campo **CODIGO** da tabela  **CLIENTE**. O relacionamento está definido no fato de que em  cada compra é obrigatório existir um cliente. Ainda, como um cliente poderá fazer realizar várias compras, o seu código poderá aparecer em mais de um registro na tabela **COMPRAS**, caracteristica estas de chave estrangeiras.
 
-Cada coluna da tabela está representando um campo, o qual armazena as informaçãoes sobre um tipo de dado
-| Codigo | Fornecedor | Endereco | Telefone |
-| :----: | :----      | :-----   | :------  |
+Outro objetivo dos realcionamentos é auxiliar nas consistências dos dados armazenados no banco. No exemplo citado anteriormente, uma consitência possível de ser aplicada é validar o côdigo do cliente inserido na tabela **COMPRA** é um código valido, isto é, se existe, podendo ocasionar um erro tipo **COMPRA NÃO-REALIZADA PELO MOTIVO: CLIENTE NÃO CADASTRADO**, caso o código seja invalido.
 
-**Chave**
+## Relacionamento 1 para 1
 
-Chave é a coluna da tabela resposável por identificar os registros. O não uso de chave pode tornar o banco de dados vulnerável a diversos problemas: redundância de dados e inconsistência em relacionamento entre tabelas.
+o tipo de relacionameto de 1 para 1 diz respeito às ligações entre tabelas em que para cada registro da primeira tabela pode existit até um ná segunda segunda tabela.
 
+um exemplo para esse tipo de relacionamento é a ligação entre o RG, carteira de identidade,  e o CPF, cadastro de pessoa fisica, de uma pessoa. Cada cidadão brasileiro possui um único RG, que, por sua vez, pode estar vinculado a um único CPF ativo, assim como cada CPF ativo obrigatoriamento estará ligado a um único número de RG, como abaixo:
 
->Seja um cadastros de clientes, não se deve relacionar um cliente diretamente apenas por seu nome, pois há a possibilidade de haver dois clientes com exatamente o mesmo nome completo. Na situação de um sorteio de um prêmio e cliente o nome do cliente sorteado é Mário Anônio, porém no cadastro há dois clientes distintos com esse nome. Qual deles ficará com o prêmio? >Uma solução seria realizar um sorteio com base no número e no telefone do cliente (solução conhecida como chave composta), além disso >poderia ser usado o CPF do cliente, uma vez que o CPF é exclusivo para cada cliente (solução conhecida como chave primária). 
+**Tabela de RG***
 
-
-
-Chave Primaira: A chave primária  (do inglês, PK - Primary Key) é o caracterizada pelo fato de conter valores únicos. Por exemplo o CPF, na tabela seguinte:
-
-| CPF | Nome |
+| RG | Nome |
 | :----: | :----  |
-| 001.001.001-01 | Carlos Drummond de Andrade    |
-| 002.002.002-02 | Machado de Assis  |
-| 003.003.003-03 | Erico Verissimo  |
-| 004.004 004-04 | Machado de Assis   |
+| 1.222.333-4 | Carlos Drummond de Andrade    |
+| 1.234.432-5 | Machado de Assis  |
+| 1.112.313-6 | Erico Verissimo  |
 
-Chave Composta: A chave composta tanbém é caracterizada por conter um valor único, porém é formada por dois ou mais campos. Há chave composta pode admitir valores repetidos em suas colunas, mas as se considerar as duas simultaneamente essa possibilidade não pode ocorrer.   
+**Tabela de CPF***
 
-
-| Telefone|Nome |
+| RG | CPF |
 | :----: | :----  |
-| (41)1123-4456| Carlos Drummond de Andrade    |
-| (47)1223-2345 | Machado de Assis  |
-| (21)1212-2123 | Erico Verissimo  |
-| (11)1321-3213 | Machado de Assis   |
+| 1.222.333-4 | 122.223.334-45   |
+| 1.234.432-5 | 121.232.234-34   |
 
-A chave composta é utilizada para suprir a necessidade do uso de chave primária em um banco de dados não-normalizados. É aconselhavél o uso de chaves primárias simples, tanto por questões de performance quato pela facilidade de relacionamento de tabelas.
+## Relacionamento de 1 para N
 
+Já os relacionamentos 1 para N permitem que possa existir mais de um registro na segunda tabela, para cada registro da primeira tabela.
 
-Chave Estrangeira: A chave estrangeira (FK - Foreing Key) é uma coluna que armazena a chave primária de outra tabela. A Chave estrangeira e a chave primaria forma o relacionamento entre tabelas.
+Neste relacionamento, um exemplo que pode ser citado é a ligação entre o cliente e as compras realizadas em uma loja. Informalmente, um cliente pode realizar uma ou mais (N) compras em uma loja. Contudo para cada compra da loja, ou seja, cada nota fiscal emitida, estará exclusivamente em um cliente. Formalmente, a tabela **CLIENTE** possuirá uma coluna como chave primária, CPF, por exemplo, que estará realcionada com a tabela **COMPRA**, na qual essa chave poderá aparecer em mais de um registro. Ademais, cada compra estará representada em um único registro da tabela **COMPRA**, pois a nota fiscal é um documento único na transação, o número da nota fiscal pode ser uma chave primária na tabela **COMPRA**, como mostra a tabela seguinte. 
 
+**Tabela CLIENTE***
 
-**Tabela CLIENTES** 
-
-|Codigo |Nome |
+| Codigo | Nome |
 | :----: | :----  |
-| 1 | Carlos Drummond de Andrade    |
+| 1 | Carlos Drummond   |
 | 2 | Machado de Assis  |
 | 3 | Erico Verissimo  |
 
-**Tabela VENDAS**
+**Tabela COMPRA***
 
-|Nota Fiscal | Cliente | Produto |
-| :----: | :----  | :----- |
-| 239 | 1  | dvd player    |
-| 240 | 1  | home theater  |
-| 241 | 2  | som           |
+| Nota Fiscal | Cliente | Produto |
+| :----: | :----  | :---- |
+| 239 | 1   | DVD Player |
+| 240 | 1   | Home Theater |
+| 241 | 2   | Som        |
 
->Neste caso, a coluna **Cliente** da tabela **VENDAS** está encarregada somente de armazenar o número do código do cliente responsável pela compra. Nessa tabela **VENDAS**, esse campo é chave estrangeira, pois tem origem em outra tabela, além de ser possível cadastrá-lo em mais de um registro, tendo em vista que um cliente pode realizar mais de uma compra na loja. A coluna **Codigo** na tabela **CLIENTEs** é a chave primária, pois o cliente é dadstrado uma única vez. Assim, o campo **Cliente** é uma chave estrangeira em **VENDAS** e o campo **Codigo** é a chave primária em **CLIENTE**
+# Relacionamentos N para N
 
+De todos tipos de relacionamentos, o tipo N para N, muitos para muitos, é, sem dúvida, o mais amplo de todos. Pode-se dizer que este  relacionamento é a combinação do tipo de 1 para N nos dois sentidos, da primeira para a segunda tabela e vice-versa. Neste caso, pode haver um ou mais registros na segunda tabela ligados a um registro da primeira, assim como pode haver um ou mais registros na primeira tabela  para cada registro da segunda.
+
+Um exemplo para este caso é o controle de matrícula de alunos nos cursos de um treinamento oferecidos por uma escola qualquer. Não há restrições de que o aluno não possa assistir a mais de um curso. Portanto, um aluno pode está matriculado em um ou mais cursos da escola. Do outro lado da ligação, um curso pode ser frequentado por um ou mais alunos. Supondo as tabelas **ALUNO** com o campo Codigo como chave primária dos alunos, que será a chave estrangeira em **MATRICULA** , como também da coluna responsável pelo nome do curso, pois, pois vários alunos poderão estar matriculados no mesmo curso, conforme as tabelas abaixo. 
+
+**Tabela ALUNO***
+
+| Codigo | Nome |
+| :----: | :----  |
+| 1 | Carlos Drummond   |
+| 2 | Machado de Assis  |
+| 3 | Erico Verissimo  |
+
+**Tabela MATRICULA***
+
+| Aluno | Curso |
+| :----: | :----  |
+| 1 | Digitacao   | 
+| 1 | Planilha   | 
+| 2 | Digitacao   | 
+| 3 | Digitacao   |
+
+Note que a coluna Curso poderia ser uma chave estrangeira, caso os cursos fossem cadastrados em uma tabela à parte denomeinada **CURSO**. 
+
+**Tabela ALUNO***
+
+| Codigo | Nome |
+| :----: | :----  |
+| 1 | Carlos Drummond   |
+| 2 | Machado de Assis  |
+| 3 | Erico Verissimo  |
+
+**Tabela MATRICULA***
+
+| Aluno | Curso |
+| :----: | :----  |
+| 1 | 1   | 
+| 1 | 2   | 
+| 2 | 1   | 
+| 3 | 1   |
+
+**Tabela CURSO***
+
+| Codigo | Curso |
+| :----: | :----  |
+| 1 | Digitacao  | 
+| 1 | Planilha   | 
