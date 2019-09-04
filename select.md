@@ -39,5 +39,8 @@ UPDATE tabela SET campo = valor [, campo2 = valor2, ...] [WHERE condicao]
 
 A instrução DELETE exclui um ou mais registros de uma tabela. É possível filtra os registros a serem excluídos por meio da claúsula WHERE. Se não for aplicado nenhum filtro, a instrução DELETE exclui todos os registros da tabela.
 
-``
+```
+DELETE FROM tabela [WHERE condicao]
+
+
 
