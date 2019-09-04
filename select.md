@@ -12,20 +12,58 @@ A instrução mais importante no SQL é o SELECT, pois, é a partir dele, que se
 
 O comando SELECT é utilizado na realização de consultas ao banco de dados, retornando  sempre os dados em formato de tabelas.
 
+```
+SELECT campo FROM tabela
+```
+
 ### Parâmetro WHERE
 
 O parãmetro WHERE é um argumento opcional da instrução SELECT e de outras instruções. O seu objetivo é filtrar o conjunto de resultados para que somente  os registros que atendam a determinadas condições sejam visualizados.
 
-Geralmente as condições de uma expressão que utiliza WHERE testam uma comparação de valores  entre um campo da tabela de um valor predeterminado ou até mesmo de outra tabela.
+```
+SELECT campo FROM tabela WHERE condicao
+```
 
 ### Parâmetro ORDER BY
+
+O parãmetro **ORDER BY** é utilizado para ordenar os registros de uma consuta de acordo com um campo ou critério utilizado.
+
+```
+SELECT campo FROM tabela  ORDER BY criterio [ASC|DESC]
+```
+
+**Observação:**
+
++ Recomenda-se que o  **ORDER BY** seja empregado após as claúsulas WHERE e HAVING.
++ O valor DESC após a a um critério torna possível a ordenação em ordem decrescente.
 
 
 ### Parãmetro JOIN
 
+O parãmetro **JOIN** e suas varições  permite unir duas ou mais tabelas a partir de campos correspondentes entre as mesmas. 
+
+```
+SELECT campo FROM tabela1 JOIN tabela2 ON tabela1.campo = tabela2.campo [WHERE condicao]
+```
+
 ### Parãmetro AS
 
+Durante a utilização de um comando SQL, em caso de utilizar campos cujos nomes sejam muito longos, ou por outros motivos, é possível atribuir um apelido (alias) para um campo especifico para uso na expressão SQL e na visualização dos resultados.
+
+```
+SELECT campo AS alias FROM tabela [WHERE condicao]
+```
+
 ## Instrução INSERT
+
+A instrução INSERT é utilizada para incluir dados em uma tabela.
+
+```
+INSERT INTO tabela [(campo1 [, campo2, ...)] VALUES (valor1 [, valor2, ...])
+```
+
+A utilização do comando INSERT requer cuidados especiais. Sempre que possível todos os campos da tabela  sejam identificados e valorados, isso porque é posível incluir registros sem informar os valores de campos que usem valores padrão criados na tabela.
+
 
 ## Instrução UPDATE
 
@@ -41,6 +79,6 @@ A instrução DELETE exclui um ou mais registros de uma tabela. É possível fil
 
 ```
 DELETE FROM tabela [WHERE condicao]
-
+```
 
 
