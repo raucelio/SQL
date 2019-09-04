@@ -1,3 +1,10 @@
+
+**Exemplo:**
+
+```
+SELECT capital, populacao FROM brasil
+```
+
 # SQL - Structure Query Language
 
 O SQL é a linguagem responsável pela interação com os dados armazenados, em sua maioria, em bancos relacionais. Essa linguagem permite:
@@ -16,6 +23,12 @@ O comando SELECT é utilizado na realização de consultas ao banco de dados, re
 SELECT campo FROM tabela
 ```
 
+**Exemplo:**
+
+```
+SELECT capital, populacao FROM brasil
+```
+
 ### Parâmetro WHERE
 
 O parãmetro WHERE é um argumento opcional da instrução SELECT e de outras instruções. O seu objetivo é filtrar o conjunto de resultados para que somente  os registros que atendam a determinadas condições sejam visualizados.
@@ -24,6 +37,13 @@ O parãmetro WHERE é um argumento opcional da instrução SELECT e de outras in
 SELECT campo FROM tabela WHERE condicao
 ```
 
+**Exemplo:**
+
+```
+SELECT capital, populacao FROM brasil WHERE regiao = 'Norte'
+```
+
+
 ### Parâmetro ORDER BY
 
 O parãmetro **ORDER BY** é utilizado para ordenar os registros de uma consuta de acordo com um campo ou critério utilizado.
@@ -31,6 +51,13 @@ O parãmetro **ORDER BY** é utilizado para ordenar os registros de uma consuta 
 ```
 SELECT campo FROM tabela  ORDER BY criterio [ASC|DESC]
 ```
+
+**Exemplo:**
+
+```
+SELECT capital, populacao FROM brasil ORDER BY populacao 
+```
+
 
 **Observação:**
 
@@ -46,6 +73,13 @@ O parãmetro **JOIN** e suas varições  permite unir duas ou mais tabelas a par
 SELECT campo FROM tabela1 JOIN tabela2 ON tabela1.campo = tabela2.campo [WHERE condicao]
 ```
 
+**Exemplo:**
+
+```
+SELECT basil.capital, basil.populacao, economia.empresa 
+FROM brasil  JOIN economia ON brasil.uf = economia.uf 
+```
+
 ### Parãmetro AS
 
 Durante a utilização de um comando SQL, em caso de utilizar campos cujos nomes sejam muito longos, ou por outros motivos, é possível atribuir um apelido (alias) para um campo especifico para uso na expressão SQL e na visualização dos resultados.
@@ -53,6 +87,13 @@ Durante a utilização de um comando SQL, em caso de utilizar campos cujos nomes
 ```
 SELECT campo AS alias FROM tabela [WHERE condicao]
 ```
+
+**Exemplo:**
+
+```
+SELECT sg_unidade_federacao AS uf, nr_populacao_ativa AS populacao FROM brasil 
+```
+
 
 ## Instrução INSERT
 
@@ -64,6 +105,12 @@ INSERT INTO tabela [(campo1 [, campo2, ...)] VALUES (valor1 [, valor2, ...])
 
 A utilização do comando INSERT requer cuidados especiais. Sempre que possível todos os campos da tabela  sejam identificados e valorados, isso porque é posível incluir registros sem informar os valores de campos que usem valores padrão criados na tabela.
 
+**Exemplo:**
+
+```
+INSERT INTO consumo  (capital, populacao) VALUES ('PALMAS', 500.000) 
+```
+
 
 ## Instrução UPDATE
 
@@ -71,6 +118,12 @@ A instrução UPDATE é utilizada para atualizar para alterar dados dos registro
 
 ```
 UPDATE tabela SET campo = valor [, campo2 = valor2, ...] [WHERE condicao] 
+```
+
+**Exemplo:**
+
+```
+UPDATE INTO consumo SET  populacao = 456.345 WHERE capital = 'PALMAS' 
 ```
 
 ## Instrução DELETE
@@ -81,4 +134,8 @@ A instrução DELETE exclui um ou mais registros de uma tabela. É possível fil
 DELETE FROM tabela [WHERE condicao]
 ```
 
+**Exemplo:**
 
+```
+DELETE  FROM alunos WHERE nota <= 7.00
+```
