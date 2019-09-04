@@ -1,10 +1,3 @@
-
-**Exemplo:**
-
-```
-SELECT capital, populacao FROM brasil
-```
-
 # SQL - Structure Query Language
 
 O SQL é a linguagem responsável pela interação com os dados armazenados, em sua maioria, em bancos relacionais. Essa linguagem permite:
@@ -137,5 +130,5 @@ DELETE FROM tabela [WHERE condicao]
 **Exemplo:**
 
 ```
-DELETE  FROM alunos WHERE nota <= 7.00
+DELETE  FROM aluno WHERE nota <= 7.00
 ```
