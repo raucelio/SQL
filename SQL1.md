@@ -34,6 +34,7 @@ SELECT campo FROM tabela WHERE condicao
 
 ```
 SELECT capital, populacao FROM brasil WHERE regiao = 'Norte'
+
 ```
 
 
@@ -132,3 +133,21 @@ DELETE FROM tabela [WHERE condicao]
 ```
 DELETE  FROM aluno WHERE nota <= 7.00
 ```
+
+## Exercícios
+
+> O banco de dados **SQL_EXC_1** apresenta as tabelas **tb_cargo** e **tb_funcionário**. Execute os solicitado:
+
+1. Selecione todas observações e todas as colunas da tb_cargo.
+2. Selecione todas observações e todas as colunas da tb_funcionários.
+3. Qual o nome e o cargo dos funcionários com mestrado.
+4. Apresente a lista com o nome e o salário de todos os funcionários.
+5. Qual o nome, o cargo e o sálario de todos os servidores que recebem mais de 1000 unidades monetárias (u.m)
+6. Foi contratado o servidor abaixo, insira os seu registro na tb_funcionario.
+  +nome : Joseph 
+  +cargo : Analista de BI
+  +salario : 23000
+  +escolaridade : Graduado
+7. O salário de Joseph foi inserido com valor incorreto. O verdadeiro valor é 1230, atualize tb_funcionario.
+8. O funcionário Joseph pediu demissão. Retire o se registro da tb_funcionário.
+9. Gere uma lista de todas as informações de todos os funcionários ordenada em ordem decrescente de salários.
