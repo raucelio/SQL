@@ -144,10 +144,10 @@ DELETE  FROM aluno WHERE nota <= 7.00
 4. Apresente a lista com o nome e o salário de todos os funcionários.
 5. Qual o nome, o cargo e o sálario de todos os servidores que recebem mais de 1000 unidades monetárias (u.m)
 6. Foi contratado o servidor abaixo, insira os seu registro na tb_funcionario.
-  +nome : Joseph 
-  +cargo : Analista de BI
-  +salario : 23000
-  +escolaridade : Graduado
+  * nome : Joseph 
+  * cargo : Analista de BI
+  * salario : 23000
+  * escolaridade : Graduado
 7. O salário de Joseph foi inserido com valor incorreto. O verdadeiro valor é 1230, atualize tb_funcionario.
 8. O funcionário Joseph pediu demissão. Retire o se registro da tb_funcionário.
 9. Gere uma lista de todas as informações de todos os funcionários ordenada em ordem decrescente de salários.
